@@ -2,6 +2,8 @@ import React from 'react'
 
 export const MarvelScreen = () => {
     return (
-        <div>MarvelScreen</div>
+        <div>
+            <h1>MarvelScreen</h1>
+        </div>
     )
 }
