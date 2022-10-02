@@ -1,12 +1,12 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({props}) => {
 
-    const navigate = useNavigate();
+    const history = useHistory();
 
     const handleLogin = () => {
-        navigate('/home', { replace: true });
+        history.replace('/');
     }
 
     return (

@@ -3,9 +3,9 @@ import { DcScreen } from '../components/dc/DcScreen'
 import { MarvelScreen } from '../components/marvel/MarvelScreen'
 import { Navbar } from '../components/ui/Navbar'
 import {
-    Routes,
+    Switch,
     Route,
-    Navigate
+    Redirect
 } from "react-router-dom";
 import { HeroScreen } from '../components/heroes/HeroScreen';
 
@@ -14,12 +14,12 @@ export const DashboardRouter = () => {
         <>
             <Navbar/>
             <div className='container'>
-                <Routes>
-                    <Route path="/marvel" element={<MarvelScreen/>}/>
-                    <Route path="/hero/:heroId" element={<HeroScreen/>}/>
-                    <Route path="/dc" element={<DcScreen/>}/>
-                    <Route path="/" element={<Navigate to="/marvel" />}/>
-                </Routes>
+                <Switch>
+                    <Route exact path="/marvel"><MarvelScreen/></Route>
+                    <Route path="/hero/:heroId"><HeroScreen/></Route>
+                    <Route path="/dc"><DcScreen/></Route>
+                    <Route path="/"><Redirect to="/marvel" /></Route>
+                </Switch>
             </div>
         </>
     )
