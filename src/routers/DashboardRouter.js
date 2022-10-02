@@ -13,7 +13,7 @@ export const DashboardRouter = () => {
     return (
         <>
             <Navbar/>
-            <div>
+            <div className='container'>
                 <Routes>
                     <Route path="/marvel" element={<MarvelScreen/>}/>
                     <Route path="/heroe/:heroeId" element={<HeroScreen/>}/>
