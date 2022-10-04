@@ -34,7 +34,7 @@ export const HeroScreen = () => {
     return (
         <div className='row mt-5'>
             <div className='col-4'>
-                <img src={`../assets/heroes/${id}.jpg`} className='img-thumbnail' alt={alter_ego}/>
+                <img src={`../assets/heroes/${id}.jpg`} className='img-thumbnail animate__animated animate__fadeInLeft' alt={alter_ego}/>
             </div>
             <div className='col-8'>
                 <h3>{superhero}</h3>
