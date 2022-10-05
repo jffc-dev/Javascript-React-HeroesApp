@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom';
 import {heroes} from '../../data/heroes.js'
 import { useForm } from '../../hooks/useForm.js';
+import { getHeroesByName } from '../../selectors/getHeroesByName.js';
 import { HeroCard } from '../heroes/HeroCard.js';
 
 export const SearchScreen = () => {
@@ -11,14 +12,13 @@ export const SearchScreen = () => {
         return React.useMemo(() => new URLSearchParams(search), [search]);
     }
 
-    const heroesFiltered = heroes;
     const [ formValues, handleInputChange ] = useForm( {search:""} );
     const {search} = formValues;
     const history = useHistory();
     const query = useQuery();
     const querySearch = query.get("q");
-    console.log(querySearch);
     
+    const heroesFiltered = getHeroesByName(querySearch);
 
     const handleSearch = (e) => {
         
@@ -53,6 +53,20 @@ export const SearchScreen = () => {
                 <div className='col-7'>
                     <h4>Results</h4>
                     <hr/>
+
+                    {
+                        (querySearch === '') &&
+                        <div className='alert alert-info'>
+                            Search a hero...
+                        </div>
+                    }
+
+                    {
+                        (querySearch !== '' && heroesFiltered.length === 0) &&
+                        <div className='alert alert-warning'>
+                            There is no a hero with {querySearch}.
+                        </div>
+                    }
 
                     {
                         heroesFiltered.map(hero => (
