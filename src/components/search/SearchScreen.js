@@ -18,7 +18,7 @@ export const SearchScreen = () => {
     const query = useQuery();
     const querySearch = query.get("q");
     
-    const heroesFiltered = getHeroesByName(querySearch);
+    const heroesFiltered = getHeroesByName(querySearch || "");
 
     const handleSearch = (e) => {
         
