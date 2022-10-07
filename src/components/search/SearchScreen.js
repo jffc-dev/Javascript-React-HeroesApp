@@ -1,6 +1,5 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom';
-import {heroes} from '../../data/heroes.js'
 import { useForm } from '../../hooks/useForm.js';
 import { getHeroesByName } from '../../selectors/getHeroesByName.js';
 import { HeroCard } from '../heroes/HeroCard.js';
